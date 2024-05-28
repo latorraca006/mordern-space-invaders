@@ -29,3 +29,11 @@ class Invader {
     );
   }
 }
+
+update({ velocity}) {
+    if(this.image) {
+        this.draw();
+        this.position.x += velocity.x;
+        this.position.y += velocity.y;
+    }
+} 
