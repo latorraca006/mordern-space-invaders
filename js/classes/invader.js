@@ -36,19 +36,20 @@ class Invader {
             this.position.x += velocity.x;
             this.position.y += velocity.y;
         }
-    } 
         shoot(InvaderProjectiles) {
-          audio.enemy.Shoot.play();
-          InvaderProjectiles.push(
-            new InvaderProjectiles({
-                position: {
-                    x: this.position.x + this.width / 2,
-                    y: this.position.y + this.height / 2,
-                },
-                velocity: {
-                    x: 0,
-                    y: 10,
-                }
-            })
-          )
+            audio.enemy.Shoot.play();
+            InvaderProjectiles.push(
+              new InvaderProjectiles({
+                  position: {
+                      x: this.position.x + this.width / 2,
+                      y: this.position.y + this.height / 2,
+                  },
+                  velocity: {
+                      x: 0,
+                      y: 10,
+                  }
+              })
+            )
+    } 
+       
         }
