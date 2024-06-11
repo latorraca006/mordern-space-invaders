@@ -29,4 +29,25 @@ function createScoreLabel({ score = 100, Object }) {
             rectangle1.position.x <= rectangle2.position.x + rectangle2.width
         );
     }
-}
+  }
+
+  function creatParticles() {
+    for(let i = 0;i < 15; i++) {
+      creatParticles.push(
+        new Particle({
+          position: {
+            x: this.position.x + this.width / 2,
+            y: this.position.y + this.height / 2
+          },
+          velocity: {
+            x: (Math.random() - 0.5) * 2,
+            y: (Math.random() - 0.5) * 2
+          },
+          radius: Math.rondom() * 3,
+          color: color || "BAA0DE",
+          fades: true
+        }) 
+        
+        };
+    }
+  
