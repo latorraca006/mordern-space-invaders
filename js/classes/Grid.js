@@ -6,7 +6,7 @@ class Grid {
     };
 
     this.velocity = {
-      x: 0,
+      x: 3,
       y: 0
     };
 
@@ -30,13 +30,16 @@ class Grid {
       }
     }
   }
+
   update() {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
-    this.draw();
-    if(this.position.x + this.width >= Canvas.width || this.position. x <0 ) {
-        this.velocity.x = -this.velocity.x + 1.15;
-        this.velocity.y = 38;
+
+    this.velocity.y = 0;
+
+    if (this.position.x + this.width >= canvas.width || this.position.x <= 0) {
+      this.velocity.x = -this.velocity.x * 1.15;
+      this.velocity.y = 30;
     }
   }
 }

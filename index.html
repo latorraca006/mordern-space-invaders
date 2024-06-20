@@ -9,18 +9,19 @@
       href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
       rel="stylesheet"
     />
-    <title>Modern Space Invaders | Amanda Latorraca</title>
+    <link rel="shortcut icon" href="img/spaceship.png" type="image/x-icon">
+    <title>Modern Space Invaders | Wanderson Timóteo</title>
     <style>
       body,
       html {
+        height: 100%;
+        margin: 0;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0;
-        height: 100%;
-        font-family: "Press Start 2P",Arial, Helvetica, sans-serif;
+        background-color: black;
+        font-family: "Press Start 2P", sans-serif;
         font-size: 14px;
-        background-color: darkmagenta;
       }
     </style>
   </head>
@@ -29,13 +30,13 @@
       <p
         id="scoreContainer"
         style="
-          display: none;
-          justify-content: center;
-          align-items: center;
           position: absolute;
-          top: 10px;
+          z-index: 10;
+          color: white;
           left: 10px;
-          width: 100%;
+          top: 10px;
+          margin: 0;
+          display: none;
         "
       >
         <span>Pontos:</span>
@@ -46,10 +47,12 @@
         id="startScreen"
         style="
           display: flex;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
           position: absolute;
           top: 0;
+          right: 0;
+          bottom: 0;
           left: 0;
           background: url('./img/startScreenBackground.png');
           background-size: contain;
@@ -64,6 +67,7 @@
             style="cursor: pointer; position: relative; display: inline-block"
           >
             <img src="./img/button.png" alt="Start Button" />
+
             <span
               style="
                 position: absolute;
@@ -71,38 +75,37 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                font-size: 10px;
               "
               >Iniciar</span
             >
           </div>
-          <!-- Fim do id starButton -->
         </div>
       </div>
-      <!-- Fim do id startScreen -->
       <div
         id="restartScreen"
         style="
           display: none;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
           position: absolute;
           top: 0;
-          left: 0;
           right: 0;
           bottom: 0;
-          background: url('./img/restartScreenBackground.png');
+          left: 0;
+          background: url('./img/startScreenBackground.png');
           background-size: contain;
           background-repeat: no-repeat;
           z-index: 20;
         "
       >
         <div style="text-align: center">
-          <h1 style="color: white">Gamer Over</h1>
+          <h1 style="color: white">Game Over</h1>
           <div
             id="restartButton"
             style="cursor: pointer; position: relative; display: inline-block"
           >
-            <img src="./img/" alt="restartButton" />
+            <img src="./img/button.png" alt="Restart Button" />
             <span
               style="
                 position: absolute;
@@ -110,41 +113,37 @@
                 top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-size:10px;
+                font-size: 10px;
               "
               >Reiniciar</span
             >
           </div>
-          <!-- Fim do id restartButton-->
         </div>
-        <!-- Fim do id startScreen -->
       </div>
+
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+        integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
+        integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
+      <script src="./audio.js"></script>
+      <script src="./js/util.js"></script>
+      <script src="./js/classes/Player.js"></script>
+      <script src="./js/classes/Projectile.js"></script>
+      <script src="./js/classes/Particle.js"></script>
+      <script src="./js/classes/InvaderProjectile.js"></script>
+      <script src="./js/classes/Invader.js"></script>
+      <script src="./js/classes/Grid.js"></script>
+      <script src="./js/classes/Bomb.js"></script>
+      <script src="./index.js"></script>
     </div>
-    <!-- Fim do id parentDiv -->
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
-      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"
-      integrity="sha512-6+YN/9o9BWrk6wSfGxQGpt3EUK6XeHi6yeHV+TYD2GR0Sj/cggRpXr1BrAQf0as6XslxomMUxXp2vIl+fv0QRA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="./audio.js"></script>
-    <script src="./js/util.js"></script>
-    <script src="./js/classes/Player.js"></script>
-    <script src="./js/classes/Projectiles.js"></script>
-    <script src="./js/classes/Particle.js"></script>
-    <script src="./js/classes/InvadersProjectiles.js"></script>
-    <script src="./js/classes/invader.js"></script>
-    <script src="./js/classes/Grid.js"></script>
-    <script src="./js/classes/Bomb.js"></script>
-    <script src="./index.js"></script>
   </body>
 </html>
-
