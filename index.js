@@ -383,5 +383,77 @@ grids.forEach((grid, gridIndex) => {
     player.velocity.x = 0;
     player.rotation = 0;
   }
-    
+  if(frames % randomInterval == 0) {
+    spawnBuffer = spawnBuffer < 0 ? spawnBuffer;
+    grids.push(new Grid());
+    randomInterval = Math.floor(Math.random() * 500 + spawnBuffer);
+    frames = 0;
+    spawnBuffer -= 100;
+  }
+
+  if(
+    keys.space.pressed &&
+    player.powerUp === "Metralhadora" &&
+    frames % 2 === 0 &&
+    game.over
+  ) {
+    if(frames % 6 === 0) Audio.shoot.play();
+    projectlies.push(
+        new Projectlie({
+            position: {
+                x: player.position.x + player.width / 2,
+                y: player.position.y  
+            },
+            velocity: {
+                x: 0,
+                y: -10,
+            },
+            color:  "yellow"
+        })
+  };
+
+  frames++;
+};
+
+document.querySelector("#startButton").addEventListener("click", () =>) {
+    Audio.background.play();
+    Audio.start.play();
+
+    document.querySelector("#startButton").computedStyleMap.display = "none";
+    document.querySelector("#scoreContainer").computedStyleMap.display = "block";
+    Init();
+    animate();
+
+});
+
+addEventListener("keydown", ({ key }) => {
+    if(game.over) return;
+
+    swtch (key) {
+        case "ArrowLeft" :
+            keys.ArrowLeft.pressed = true;
+            break;
+        case "ArrowRight" :
+            keys.ArrowRight.pressed = true;
+            break;
+        case "" :
+            keys.space.pressed = true;
+
+            if (player.powerUp === "Metratalhadora") return;
+
+            Audio.shoot.play();
+            projectlies.push(
+                new Projectlie({
+                    position: {
+                        x: player.position.x + player.width / 2,
+                        y: player.position.y
+                    },
+                    velocity: {
+                        x: 0,
+                        y: -10,
+                    }
+                }
+    }
 }
+
+
